@@ -1,0 +1,125 @@
+body{
+    background: linear-gradient(to right, #9796f0, #fbc7d4);
+    font-family: 'Montserrat', arial, sans-serif;
+}
+
+/*welcome message*/
+
+.popup{
+    font-size: 20px;
+    background-color: #e9e4f0;
+    border: 2px solid #d3cce3;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 200px;
+    width: 400px;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+.popup h2, .popup h3{
+    margin: 25px;
+}
+
+.popup #close{
+    visibility: hidden;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.popup .close-button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.popup .close-button:hover{
+    color: #9796f0;
+    transition: 0.4s
+}
+
+#overlay{
+    position: fixed;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, .5);
+    z-index: 0;
+}
+
+/*Flexbox*/
+.fcontainer{
+    height: 90vh;
+    margin: 20px 100px auto 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.info{
+    text-align: center;
+}
+.title{
+    text-decoration: underline;
+    font-size: 45px;
+    color: #e9e4f0;
+    text-align: center;
+}
+
+.desc{
+    text-align: center;
+    font-size: 30px;
+    color: #e9e4f0;
+}
+
+/*Design*/
+
+.calc{
+    background: linear-gradient(to right, #d3cce3, #e9e4f0);
+    border-radius: 10px;
+    height: 460px;
+    width: 360px;
+    margin: 0 25px 25px 25px;
+    padding: 5px 0 5px 0;
+}
+.calc .datos{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 80px;
+    width: 330px;
+    padding-right: 10px;
+    margin: 10px 0 5px 10px;
+}
+
+.num{
+    text-align: center;
+}
+
+.num button{
+    font-size: 25px;
+    color: #ffffff;
+    border: 0px;
+    background-color:#e9e4f0;
+    margin: 5px;
+    height: 80px;
+    width: 75px;
+}
+
+.num #mas, .num #menos, .num #multi,.num #divi, .num #igual{
+    background-color: #d3cce3;
+}
+
+.num #num0{
+    width: 165px;
+}
