@@ -4,7 +4,7 @@ body{
 }
 
 /*welcome message*/
-/*
+
 .popup{
     font-size: 20px;
     background-color: #5c5c5c;
@@ -55,7 +55,7 @@ body{
     background-color: rgb(0, 0, 0, .5);
     z-index: 0;
 }
-*/
+
 /*Flexbox*/
 .fcontainer{
     height: 90vh;
