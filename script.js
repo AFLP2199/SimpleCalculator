@@ -1,5 +1,5 @@
 //popup close
-/*
+
 var close = document.getElementById("close");
 var fondo = document.getElementById("overlay");
 var message = document.getElementById("popup");
@@ -13,7 +13,7 @@ function cerrar(){
     message.style.opacity = "0"
     message.style.visibility = "hidden"
     message.style.transition = "0.4s"
-}*/
+}
 
 //calc functions
 var box = document.getElementById("datos");
