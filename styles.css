@@ -6,25 +6,33 @@ body{
 /*welcome message*/
 
 .popup{
-    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
     background-color: #272727;
     border: 2px solid #757575;
     border-radius: 10px;
     position: fixed;
     top: 50%;
     left: 50%;
-    height: 200px;
-    width: 400px;
+    height: 250px;
+    width: 500px;
     text-align: center;
     transform: translate(-50%,-50%);
     z-index: 1;
     transition: 0.4s;
+    color: white;
 }
 
-.popup h2, .popup h3{
-    color: white;
-    text-align: center;
-    margin: 35px;
+.popup h2{
+    font-size: 36px;
+    margin: 10px;
+}
+
+.popup h3{
+    font-size: 28px;
+    margin: 20px;
 }
 
 .popup #close{
@@ -35,10 +43,11 @@ body{
 }
 
 .popup .close-button{
+    font-size: 25px;
     color: white;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
     transition: 0.4s;
 }
@@ -91,6 +100,7 @@ body{
 
 .calc{
     background: #1b1c1d; 
+    border: 1px solid #2c2e30;
     border-radius: 10px;
     height: 510px;
     width: 360px;
@@ -99,38 +109,38 @@ body{
     box-shadow: -3px 5px 20px 3px rgba(0,0,0,1);
 }
 .calc #datos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: rgb(70, 70, 70);
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     text-align: end;
     font-family: Arial, Helvetica, sans-serif;
-    height: 80px;
-    width: 320px;
-    padding: 10px;
-    margin: 10px 0 5px 10px;
+    height: 100px;
+    padding-right: 10px;
+    width: 325px;
+    margin: 10px;
     border: 0px;
     box-shadow: inset 0px 0px 5px 5px rgb(20, 20, 20);
     outline: none;
 }
 
-.num{
-    text-align: center;
-}
-
 .num button{
+    text-align: center;
     font-size: 25px;
     color: #ffffff;
     border: 0px;
+    border-radius: 2px;
     background-color:rgb(41, 41, 41);
     box-shadow: -2px 0px rgb(59, 59, 59);
     height: 70px;
     width: 80px;
-    margin-top: 5px;
+    margin: 2.5px;
     transition: 0.4s;
     outline: none;
+}
+
+#first, #second, #third, #fourth, #fifth{
+    display: flex;
+    justify-content: center;
 }
 
 .num #mas, .num #menos, .num #multi,.num #divi, .num #igual{

@@ -34,10 +34,8 @@ var divi = document.getElementById("divi");
 var igual = document.getElementById("igual");
 var cleanbutton = document.getElementById("clean");
 var punto = document.getElementById("punto");
-var aux1;
-var aux2;
-var auxresto;
-var cmenos = 0; //checks quantity of negative signs
+var valor1;
+var valor2;
 var operacion;
 
 cleanbutton.addEventListener("click", function limpiar(){ box.value =""});
@@ -51,77 +49,68 @@ num7.addEventListener("click", function n7(){box.value += num7.innerHTML;});
 num8.addEventListener("click", function n8(){box.value += num8.innerHTML;});
 num9.addEventListener("click", function n9(){box.value += num9.innerHTML;});
 num0.addEventListener("click", function n0(){box.value += num0.innerHTML;});
-punto.addEventListener("click", function point(){box.value += punto.innerHTML;});
+punto.addEventListener("click", point);
 mas.addEventListener("click", sumar);
 menos.addEventListener("click", restar);
 multi.addEventListener("click", multiplicar);
 divi.addEventListener("click", dividir);
 igual.addEventListener("click", op);
 
+function point(){
+    if(box.value != '+' & box.value != '-' & box.value != '*' & box.value != '/'){
+        if(box.value.includes(".") == false){
+            box.value += ".";
+        }
+    }
+}
+
 function sumar(){
     if(box.value != '+' && box.value != '-' && box.value != '*' && box.value != '/'){
-        aux1 = parseFloat(box.value); 
+        valor1 = parseFloat(box.value); 
         box.value =""; 
         box.value += mas.innerHTML;
     }
-    cmenos = 0;
 }
 
 function restar(){
-    cmenos+=1;
     if(box.value != '+' & box.value != '-' & box.value != '*' & box.value != '/'){
-        aux1 = parseFloat(box.value);
-        box.value ="";
+        valor1 = parseFloat(box.value);
+        box.value = "";
         box.value += menos.innerHTML;   
     }
 }
 
 function multiplicar(){
     if(box.value != '+' & box.value != '-' & box.value != '*' & box.value != '/'){
-        aux1 = parseFloat(box.value); 
+        valor1 = parseFloat(box.value); 
         box.value ="";
         box.value += multi.innerHTML;    
     }
-    cmenos = 0;
 }
 function dividir(){
     if(box.value != '+' & box.value != '-' & box.value != '*' & box.value != '/'){
-        aux1 = parseFloat(box.value); 
+        valor1 = parseFloat(box.value); 
         box.value ="";
         box.value += divi.innerHTML;
-    }
-    cmenos = 0;
-}
-
-function point(){
-    if(box.value != '+' & box.value != '-' & box.value != '*' & box.value != '/'){
-        box.value += punto.innerHTML;
     }
 }
 
 function op(){
-    aux2 = parseFloat(box.value.slice(1, box.value.length)); 
-    resto = cmenos%2; 
+    valor2 = parseFloat(box.value.slice(1, box.value.length)); 
     if(box.value[0] == '+'){
-        operacion = aux1+aux2; 
-        box.value = operacion;
+        operacion = valor1+valor2; 
+        box.value = (parseFloat(operacion).toPrecision(12)); //toPrecision to fix floating errors
     }else if(box.value[0] == '-'){    
-        if(resto != 0){
-            operacion = aux1-aux2; 
-            box.value = operacion;
-        }else{
-            operacion = aux1+aux2; 
-            box.value = operacion;
-        }
+        operacion = valor1-valor2; 
+        box.value = (parseFloat(operacion).toPrecision(12));
     }else if(box.value[0] == '*'){
-        operacion = aux1*aux2; 
-        box.value = operacion;
+        operacion = valor1*valor2; 
+        box.value = (parseFloat(operacion).toPrecision(12));
     }else if(box.value[0] == '/'){
-        operacion = aux1/aux2; 
-        box.value = operacion;
+        operacion = valor1/valor2; 
+        box.value = (parseFloat(operacion).toPrecision(12));
     }
     if(isNaN(box.value)){ //display error if box value is not a number
         box.value = "ERROR";
     }
-    cmenos = 0;
 }
