@@ -33,10 +33,11 @@ var multi = document.getElementById("multi");
 var divi = document.getElementById("divi");
 var igual = document.getElementById("igual");
 var cleanbutton = document.getElementById("clean");
+var punto = document.getElementById("punto");
 var aux1;
 var aux2;
 var auxresto;
-var cmenos = 0; //cantidad de veces que se apreto el boton menos
+var cmenos = 0; //checks quantity of negative signs
 var operacion;
 
 cleanbutton.addEventListener("click", function limpiar(){ box.value =""});
@@ -50,6 +51,7 @@ num7.addEventListener("click", function n7(){box.value += num7.innerHTML;});
 num8.addEventListener("click", function n8(){box.value += num8.innerHTML;});
 num9.addEventListener("click", function n9(){box.value += num9.innerHTML;});
 num0.addEventListener("click", function n0(){box.value += num0.innerHTML;});
+punto.addEventListener("click", function point(){box.value += punto.innerHTML;});
 mas.addEventListener("click", sumar);
 menos.addEventListener("click", restar);
 multi.addEventListener("click", multiplicar);
@@ -58,10 +60,12 @@ igual.addEventListener("click", op);
 
 function sumar(){
     if(box.value != '+' && box.value != '-' && box.value != '*' && box.value != '/'){
-        aux1 = parseFloat(box.value)}; 
+        aux1 = parseFloat(box.value); 
         box.value =""; 
         box.value += mas.innerHTML;
     }
+    cmenos = 0;
+}
 
 function restar(){
     cmenos+=1;
@@ -78,24 +82,35 @@ function multiplicar(){
         box.value ="";
         box.value += multi.innerHTML;    
     }
+    cmenos = 0;
 }
 function dividir(){
-    aux1 = parseFloat(box.value); 
-    box.value = divi.innerHTML;
+    if(box.value != '+' & box.value != '-' & box.value != '*' & box.value != '/'){
+        aux1 = parseFloat(box.value); 
+        box.value ="";
+        box.value += divi.innerHTML;
+    }
+    cmenos = 0;
+}
+
+function point(){
+    if(box.value != '+' & box.value != '-' & box.value != '*' & box.value != '/'){
+        box.value += punto.innerHTML;
+    }
 }
 
 function op(){
     aux2 = parseFloat(box.value.slice(1, box.value.length)); 
-    resto = cmenos%2;
+    resto = cmenos%2; 
     if(box.value[0] == '+'){
         operacion = aux1+aux2; 
         box.value = operacion;
     }else if(box.value[0] == '-'){    
         if(resto != 0){
-            operacion = aux1+aux2; 
+            operacion = aux1-aux2; 
             box.value = operacion;
         }else{
-            operacion = aux1-aux2; 
+            operacion = aux1+aux2; 
             box.value = operacion;
         }
     }else if(box.value[0] == '*'){
@@ -105,4 +120,8 @@ function op(){
         operacion = aux1/aux2; 
         box.value = operacion;
     }
+    if(isNaN(box.value)){ //display error if box value is not a number
+        box.value = "ERROR";
+    }
+    cmenos = 0;
 }
