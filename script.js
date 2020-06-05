@@ -33,11 +33,13 @@ var multi = document.getElementById("multi");
 var divi = document.getElementById("divi");
 var igual = document.getElementById("igual");
 var cleanbutton = document.getElementById("clean");
+var del = document.getElementById("delete");
 var punto = document.getElementById("punto");
 var valor1;
 var valor2;
 var operacion;
 
+del.addEventListener("click", borrar);
 cleanbutton.addEventListener("click", function limpiar(){ box.value =""});
 num1.addEventListener("click", function n1(){box.value += num1.innerHTML;});
 num2.addEventListener("click", function n2(){box.value += num2.innerHTML;});
@@ -55,6 +57,11 @@ menos.addEventListener("click", restar);
 multi.addEventListener("click", multiplicar);
 divi.addEventListener("click", dividir);
 igual.addEventListener("click", op);
+
+function borrar(){ 
+    var ultimo= box.value.length;
+    box.value = box.value.slice(0, box.value.length -1);
+}
 
 function point(){
     if(box.value != '+' & box.value != '-' & box.value != '*' & box.value != '/'){

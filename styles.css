@@ -87,6 +87,7 @@ body{
     color: #ffffff;
     text-align: center;
     text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.75);
+    margin: 20px;
 }
 
 .desc{
@@ -94,8 +95,8 @@ body{
     font-size: 28px;
     color: #ffffff;
     text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.75);
+    margin: 0 20px 50px 20px;
 }
-
 /*Design*/
 
 .calc{
@@ -160,3 +161,49 @@ body{
     background-color: rgb(240, 41, 117);
 }
 
+/*Responsive*/
+
+@media screen and (max-width: 900px) {
+    .fcontainer{
+        justify-content: center;
+    }
+    
+    .calc{
+        height: 408px;
+        width: 288px
+    }
+    .num button{
+        height: 56px;
+        width: 64px;
+    }
+
+    #num0, #delete{
+        width: 133px;
+    }
+    .calc #datos{
+        height: 80px;
+        width: 255px;
+    }
+
+    .title{
+        font-size: 32px;
+    }
+    .desc{
+        font-size: 23px;
+    }
+    .popup{
+        height: 150px;
+        width: 300px;
+    }
+    .popup h2{
+        font-size: 22px;
+    }
+    .popup h3{
+        font-size: 17px;
+    }
+    .popup .close-button{
+        top: 6px;
+        right: 6px;
+        font-size: 15px;
+    }
+}
