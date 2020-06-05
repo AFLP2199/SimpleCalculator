@@ -170,15 +170,15 @@ body{
     
     .calc{
         height: 408px;
-        width: 288px
+        width: 287px
     }
     .num button{
-        height: 56px;
-        width: 64px;
+        height: 54px;
+        width: 63px;
     }
 
     #num0, #delete{
-        width: 133px;
+        width: 131px;
     }
     .calc #datos{
         height: 80px;
